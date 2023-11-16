@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Count Project</title>
+    <title>Review</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
@@ -27,6 +27,23 @@
     <div id="review" class="user-review w-96 mx-auto">
       <h1 class="text-3xl font-bold text-red-600">User Review...</h1>
     </div>
-    <script></script>
+    <script>
+      function addComment() {
+        const newComment = document.getElementById("text-area").value;
+        const p = document.createElement("p");
+        p.innerText = newComment;
+        document.getElementById("review").appendChild(p);
+      }
+      document
+        .getElementById("submit-btn")
+        .addEventListener("click", addComment);
+      document
+        .getElementById("text-area")
+        .addEventListener("keyup", function (event) {
+          if (event.key === "Enter") {
+            addComment();
+          }
+        });
+    </script>
   </body>
 </html>
